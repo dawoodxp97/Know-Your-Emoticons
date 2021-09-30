@@ -1,0 +1,12 @@
+.input {
+  padding: 1em;
+  width: 25rem;
+  outline: none;
+  border: none;
+  border-radius: 0.5rem;
+}
+.emoji {
+  font-size: 2rem;
+  padding: 0.5rem;
+  cursor: pointer;
+}
