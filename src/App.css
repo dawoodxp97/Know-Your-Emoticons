@@ -1,9 +1,24 @@
+.App {
+  margin-top: 4rem;
+  height: 50%;
+  width: 80%;
+}
+.App > h1,
+h2,
+h3 {
+  margin: 1rem;
+}
+
 .input {
-  padding: 1em;
+  padding: 1rem;
+  margin: 1rem;
   width: 25rem;
   outline: none;
-  border: none;
+  background: none;
+  border: 1.5px solid #00695c;
   border-radius: 0.5rem;
+  color: #fff;
+  letter-spacing: 1px;
 }
 .emoji {
   font-size: 2rem;

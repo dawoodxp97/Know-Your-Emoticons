@@ -7,45 +7,49 @@ const emojiDictionary = {
   "😔": "sad",
   "🥡": "takeout box",
   "❤️": "love",
-  "😑": "annoyance" /** add some more to show how the app now expands when there's new data */,
+  "😑": "annoyance",
+  "😀": "Grinning Face",
+  "🙃": "Upside-Down Face",
+  "🤩": "Star-Struck",
+  "🤪": "Zany Face",
 };
 
-/**
- * Bonus feature
- * converting an object to array of keys
- */
 const emojis = Object.keys(emojiDictionary);
 
 function App() {
-  const [emoji, setEmoji] = useState(""); /** concept 2 is useState */
-  const [meaning, setMeaning] = useState("translation will appear here..");
+  const [emoji, setEmoji] = useState("");
+  const [meaning, setMeaning] = useState(" 👉 Translation will appear here..");
 
-  function changeHandler(event) {
-    const inputEmoji = event.target.value;
-    setEmoji(inputEmoji);
-    if (inputEmoji in emojiDictionary) {
-      setMeaning(emojiDictionary[inputEmoji]);
+  function handleChange(e) {
+    const inpEmoji = e.target.value;
+    setEmoji(inpEmoji);
+    if (inpEmoji in emojiDictionary) {
+      setMeaning(emojiDictionary[inpEmoji]);
     } else {
-      setMeaning("Failure to recognise this emoji");
+      setMeaning("😥 Failure to recognise this emoji..!! 👎");
     }
   }
-  function emojiClickHandler(inputEmoji) {
-    setMeaning(emojiDictionary[inputEmoji]);
+  function handleEmojiClick(inpEmoji) {
+    setMeaning(emojiDictionary[inpEmoji]);
   }
 
   return (
     <div className="App">
-      <h1>Inside Out..!!</h1>
+      <h1>👋 Inside Out..!! 🌈</h1>
       <input
-        onChange={changeHandler}
+        onChange={handleChange}
         value={emoji}
         placeholder={"Search your emoji"}
         className="input"
       />
       <h2> {emoji} </h2>
       <h3> {meaning} </h3>
-      {emojis.map((emoji) => (
-        <span onClick={() => emojiClickHandler(emoji)} className="emoji">
+      {emojis.map((emoji, key) => (
+        <span
+          key={key}
+          onClick={() => handleEmojiClick(emoji)}
+          className="emoji"
+        >
           {" "}
           {emoji}{" "}
         </span>
